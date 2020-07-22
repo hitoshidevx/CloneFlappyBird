@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     
     private Rigidbody2D rb;
+    public float velocidade;
+    public AudioSource fly;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,8 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump")){
 
-            Debug.Log("Pulando");
+            rb.velocity = Vector2.up * velocidade;
+            fly.Play();
 
         }
         
