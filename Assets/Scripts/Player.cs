@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float velocidade;
     public AudioSource fly;
     public ParticleSystem dust;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -41,4 +42,10 @@ public class Player : MonoBehaviour
     {
         dust.Play();
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        Time.timeScale = 0;
+        gameOver.SetActive(true);
+    }
+
 }
